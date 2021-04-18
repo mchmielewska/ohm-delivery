@@ -1,3 +1,8 @@
+## What I've done within the scope of the task
+
+I have finished all of the tasks specified in the web and server sections. Only changing the status from IN_DELIVERY has been implemented.
+
+From the perks section, I have addressed points 1 and 5: I have improved the UI and added displaying of additional information about the order. I have also fixed a few minor issues with the code.
 
 # OHM DELIVERY
 ohm-delivery is a minimalistic project that you have to improve and build. 

@@ -3,6 +3,8 @@ const FileAsync = require('lowdb/adapters/FileAsync');
 const adapter = new FileAsync('db.json');
 const config = require('../db.config.json');
 
+const VALID_STATUSES = [ 'CREATED', 'PREPARING', 'READY', 'IN_DELIVERY','DELIVERED', 'REFUSED']
+
 const db = (async () => {
   const _db = await low(adapter);
   await _db.defaults(config).write();
@@ -33,7 +35,7 @@ async function updateOhmStatus(trackingId, status, message) {
   const ohmObject = _db.get('ohms')
     .find({ trackingId })
 
-  if (ohm.status === 'IN_DELIVERY') {
+  if (ohm.status === 'IN_DELIVERY') { // only updates for the IN_DELIVERY status are implemented
 
     if (message) ohm.comment = message
     ohm.status = status;
@@ -54,4 +56,4 @@ async function updateOhmStatus(trackingId, status, message) {
 
 }
 
-module.exports = { getOhmById, getOhmByTrackingId, updateOhmStatus }
+module.exports = { getOhmById, getOhmByTrackingId, updateOhmStatus, VALID_STATUSES }
