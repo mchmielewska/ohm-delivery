@@ -48,9 +48,6 @@ async function updateOhmStatus(trackingId, status, message) {
       history: ohm.history,
       comment: ohm.comment
     }).write()
-
-    console.log(ohm)
-
   }
 
   return ohm

@@ -21,8 +21,9 @@
                 <p>
                     <button id="formBtn" type="submit">Submit</button>
                 </p>
-                <div class="details-wrapper">
-                    <div class="details-grid" ng-if="ohmData">
+                <div class="details-wrapper" ng-if="ohmData">
+                    <h2>Current status:</h2>
+                    <div class="details-grid">
                         <div>
                             Tracking ID:
                         </div>
@@ -37,22 +38,25 @@
                         </div>
                     </div>
                 </div>
-                <span ng-if="errorMessage">{{errorMessage}}</span>
+                <p ng-if="errorMessage">{{errorMessage}}</p>
             </form>
+            
 
             <form ng-if="ohmData.status === 'IN_DELIVERY'" ng-submit="confirmDelivery(status, comment)">
                 <p>
-                    <input id="comment" ng-model="comment" type="textarea" rows="5" placeholder="Tell us if something went wrong"/>
-                </p>
-                <p>
-                    <label for="status">Choose the status for delivery:</label>
-                    <select ng-model="status">
-                        <option value="DELIVERED">delivered</option>
+                    <label for="status">Choose new status for the delivery:</label>
+                    <select ng-model="status" ng-change="showComment(status)">
+                        <option value="DELIVERED" selected="selected">delivered</option>
                         <option value="REFUSED">refused</option>
                     </select>
                 </p>
+
+                <p ng-if="commentInput">
+                    <input id="comment" ng-model="comment" type="textarea" rows="5" placeholder="Tell us if something went wrong"/>
+                </p>
+
                 <p>
-                    <button id="formBtn" type="submit">Submit</button>
+                    <button id="formBtn" type="submit">Change status</button>
                 </p>
             </form>
 

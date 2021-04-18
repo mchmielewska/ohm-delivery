@@ -2,7 +2,7 @@
     <div>
         <h2>Ohm Details</h2>
     </div>
-
+    
     <div class="details">
         <div>
             Client:
@@ -12,23 +12,14 @@
             <p>{{ ohmData.client.address }}</p>
         </div>
     </div>
-    
-    <div class="details">
-        <div>
-            Status:
-        </div>
-        <div>
-            {{ ohmData.status }}
-        </div>
-    </div>
 
     <div class="details">
         <div>
             History:
         </div>
         <div>
-            <div ng-repeat="status in ohmData.history">
-                {{status.state}}: {{status.at}}
+            <div ng-repeat="status in ohmData.history" class="history">
+                <div>{{status.state}}</div><div>{{status.at}}</div>
             </div>
         </div>
     </div>

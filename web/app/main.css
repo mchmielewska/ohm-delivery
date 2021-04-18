@@ -28,14 +28,17 @@ h1, h2 {
     letter-spacing: 0.15rem;
 }
 
-input {
-  margin: 2em auto 1em;
-  width: 50%;
+input, select {
+  margin: 1.5rem 0.5rem;
   padding: 1rem 0.75rem;
   border: none;
   border-radius: 0.5rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
+
+input {
+    width: 50%;
+} 
 
 button {
   border: none;
@@ -69,15 +72,38 @@ p {
   margin-top: 1.5rem;
 }
 
+.details-wrapper h2 {
+    color: var(--main-accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+}
+
 .details-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
-  }
-  
+    background-color: #eeeeee;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    width: 50%;
+    padding: 1rem;
+}
+
 
 .details {
   padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  width: 50%;
+  padding: 1rem;
+}
+
+.history {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    padding: 0.5rem 0;
 }
 
 .details p {
