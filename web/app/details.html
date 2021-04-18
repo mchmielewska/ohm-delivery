@@ -1,0 +1,36 @@
+<div ng-if="ohmData" class="details-wrapper">
+    <div>
+        <h2>Ohm Details</h2>
+    </div>
+
+    <div class="details">
+        <div>
+            Client:
+        </div>
+        <div>
+            <p>{{ ohmData.client.name }}</p>
+            <p>{{ ohmData.client.address }}</p>
+        </div>
+    </div>
+    
+    <div class="details">
+        <div>
+            Status:
+        </div>
+        <div>
+            {{ ohmData.status }}
+        </div>
+    </div>
+
+    <div class="details">
+        <div>
+            History:
+        </div>
+        <div>
+            <div ng-repeat="status in ohmData.history">
+                {{status.state}}: {{status.at}}
+            </div>
+        </div>
+    </div>
+
+</div>

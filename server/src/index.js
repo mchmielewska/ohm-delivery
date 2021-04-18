@@ -1,17 +1,11 @@
 const shortid = require('shortid')
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 const bodyParser = require('body-parser')
 const Utils = require('./utils');
+const ohmsRoutes = require('./routes')
 app.use(bodyParser.json())
 
-function serve() {
-    app.get('/ohms/:id', async (req, res) => {
-        const ohm = await Utils.getOhmById(req.params.id);
-        res.send(ohm);
-    })
 
-    app.listen(3000, () => console.log('listening on port 3000'));
-}
-
-serve();
+app.use('/ohms', ohmsRoutes);
+app.listen(3000, () => console.log('listening on port 3000'));

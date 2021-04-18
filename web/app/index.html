@@ -13,18 +13,50 @@
             <h2>Get shocked by the power</h2>
         </div>
         
-        <div ng-app="ohm-delivery">
-            <form ng-controller="tracking" ng-submit="sendData()">
+        <div ng-app="ohm-delivery" ng-controller="tracking">
+            <form ng-submit="sendData()">
                 <p>
                     <input id="tracking" type="text" ng-model="trackingId" placeholder="Enter your tracking id"/>
                 </p>
                 <p>
                     <button id="formBtn" type="submit">Submit</button>
                 </p>
+                <div class="details-wrapper">
+                    <div class="details-grid" ng-if="ohmData">
+                        <div>
+                            Tracking ID:
+                        </div>
+                        <div>
+                            {{ohmData.trackingId}}
+                        </div>
+                        <div>
+                            Status of your delivery:
+                        </div>
+                        <div>
+                            {{ohmData.status}}
+                        </div>
+                    </div>
+                </div>
+                <span ng-if="errorMessage">{{errorMessage}}</span>
+            </form>
+
+            <form ng-if="ohmData.status === 'IN_DELIVERY'" ng-submit="confirmDelivery(status, comment)">
                 <p>
-                    <span ng-if="errorMessage">{{errorMessage}}</span>
+                    <input id="comment" ng-model="comment" type="textarea" rows="5" placeholder="Tell us if something went wrong"/>
+                </p>
+                <p>
+                    <label for="status">Choose the status for delivery:</label>
+                    <select ng-model="status">
+                        <option value="DELIVERED">delivered</option>
+                        <option value="REFUSED">refused</option>
+                    </select>
+                </p>
+                <p>
+                    <button id="formBtn" type="submit">Submit</button>
                 </p>
             </form>
+
+            <div ng-include=" 'details.html' " />
         </div>
     </body>
 </html>
